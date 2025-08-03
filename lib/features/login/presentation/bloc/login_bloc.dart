@@ -20,7 +20,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     Either<Failure, LoginResponseModel> result = await loginUsecase(
         LoginRequestModel(
             email: event.requestModel.email.toLowerCase().trim(),
-            password: event.requestModel.password.toLowerCase().trim()));
+            password: event.requestModel.password));
 
     result.fold(
       (failure) {
