@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -70,8 +71,8 @@ class Routes {
         path: otpScreen,
         name: otpScreen,
         pageBuilder: (context, state) {
-          final OtpPageArgs? args =
-              state.extra is OtpPageArgs ? state.extra as OtpPageArgs : null;
+          final Tuple2<OtpPageArgs,RegisterPageArgs>? args =
+              state.extra is Tuple2<OtpPageArgs,RegisterPageArgs> ? state.extra as Tuple2<OtpPageArgs,RegisterPageArgs> : null;
 
           return _fadeTransitionScreenWrapper(
               context,
@@ -82,7 +83,8 @@ class Routes {
                         sendEmailUsecase: getIt<SendEmailUsecase>(),
                       ),
                   child: OtpPage(
-                    requestModel: args!.registerAdminRequestModel,
+                    requestModel: args!.value1.registerAdminRequestModel,
+                    args: args.value2,
                   )));
         },
       ),

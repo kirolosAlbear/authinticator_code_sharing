@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:key_bridge/features/register_admin/data/models/register_page_args.dart';
 import 'package:key_bridge/imports.dart';
 import 'package:otp_pin_field/otp_pin_field.dart';
 
 class OtpPage extends BaseStatefulPage {
+  final RegisterPageArgs args;
   final RegisterAdminRequestModel requestModel;
 
-  const OtpPage({required this.requestModel, super.key});
+  const OtpPage({required this.requestModel,required this.args, super.key});
 
   @override
   BaseState<OtpPage> createState() => _CodePagePageState();
@@ -23,7 +25,10 @@ class _CodePagePageState extends BaseState<OtpPage> {
   bool containPadding() => false;
 
   @override
-  bool showOnlyLogout() => true;
+  bool showOnlyLogout() => false;
+
+  @override
+  bool hasSideMenu() => widget.args.isLoggingAgain ?? false;
 
   @override
   void initState() {
@@ -51,19 +56,23 @@ class _CodePagePageState extends BaseState<OtpPage> {
               fieldWidth: 40,
               autoFillEnable: false,
               phoneNumbersHint: true,
+              cursorColor: StaticColors.greyTextColor,
               beforeTextPaste: (text) {
                 return false;
               },
               maxLength: 6,
               otpPinFieldDecoration:
-                  OtpPinFieldDecoration.defaultPinBoxDecoration,
-              otpPinFieldStyle: const OtpPinFieldStyle(
+                  OtpPinFieldDecoration.custom,
+              otpPinFieldStyle:  const OtpPinFieldStyle(
+                filledFieldBackgroundColor: Colors.transparent,
+                activeFieldBorderColor: StaticColors.greyTextColor,
+                filledFieldBorderColor: StaticColors.greyTextColor,
                 textStyle: TextStyle(
                     fontWeight: FontWeight.w900,
                     fontSize: 35,
-                    color: Colors.black),
-                defaultFieldBackgroundColor: Color(0xfff0f0f0),
-                defaultFieldBorderColor: Colors.transparent,
+                    color: Colors.white),
+                defaultFieldBackgroundColor: Colors.transparent,
+                defaultFieldBorderColor: StaticColors.greyTextColor,
                 fieldBorderWidth: 1,
                 fieldBorderRadius: 5,
               ),
@@ -100,7 +109,7 @@ class _CodePagePageState extends BaseState<OtpPage> {
                 );
               },
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
           ],
         ));
   }
@@ -111,10 +120,10 @@ class _CodePagePageState extends BaseState<OtpPage> {
           color: Colors.grey.withAlpha(40),
           borderRadius: BorderRadius.circular(8)),
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         child: Text(
           text,
-          style: TextStyle(fontWeight: FontWeight.w900, fontSize: 35),
+          style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 35),
         ),
       ),
     );

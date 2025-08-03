@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart' show Tuple2;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:key_bridge/features/register_admin/data/models/register_page_args.dart';
@@ -111,17 +112,18 @@ class _RegisterAdminPageState extends BaseState<RegisterAdminPage> {
               width: double.infinity,
               child: CustomElevatedButton(
                 onPressed: () async {
+
                   if (formFieldKey.currentState!.validate()) {
                     Routes.navigateToScreen(
                         Routes.otpScreen, NavigationType.pushNamed, context,
-                        extra: OtpPageArgs(
+                        extra: Tuple2(OtpPageArgs(
                             registerAdminRequestModel:
-                                RegisterAdminRequestModel(
-                          verificationCode: "",
-                          secretKey: secretKeyController.text,
-                          adminUserName: emailController.text,
-                          adminPassword: passwordController.text,
-                        )));
+                            RegisterAdminRequestModel(
+                              verificationCode: "",
+                              secretKey: secretKeyController.text,
+                              adminUserName: emailController.text,
+                              adminPassword: passwordController.text,
+                            )), widget.args!));
                   }
                 },
                 text: (LocaleKeys.register.tr()),
