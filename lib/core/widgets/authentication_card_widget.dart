@@ -33,8 +33,7 @@ class AuthenticationCardWidget extends StatelessWidget {
                   style: TextStyle(
                       fontSize: 26,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                      fontFamily: GoogleFonts.libreBaskerville().fontFamily),
+                      color: Colors.white,),
                 ),
                 SizedBox(height: 20),
                 child,

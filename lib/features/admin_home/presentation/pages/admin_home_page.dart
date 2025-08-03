@@ -74,7 +74,6 @@ class _AdminHomePagePageState extends BaseState<AdminHomePage> {
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
-                        fontFamily: GoogleFonts.libreBaskerville().fontFamily,
                       ),
                     ),
                   ),

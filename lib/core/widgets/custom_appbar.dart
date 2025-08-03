@@ -70,7 +70,9 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
                   width: 3,
                 ),
                 SizedBox(
-                    width: 70, child: Image.asset(Assets.images.png.logo.path)),
+                    width: 90,
+
+                    child: Image.asset(Assets.images.png.logo.path)),
                 Expanded(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,

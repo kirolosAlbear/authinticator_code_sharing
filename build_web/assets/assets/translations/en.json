@@ -28,7 +28,7 @@
   "expired": "Expired",
   "start_date": "Start Date",
   "end_date": "End Date",
-  "days_lef": "Days Left",
+  "days_left": "Days Left",
   "logins_usage": "Logins Usage",
   "last_login_date": "Last Login Date",
   "requested_codes": "Requested Codes",
