@@ -1,9 +1,11 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:key_bridge/features/register_admin/data/models/register_page_args.dart';
 import 'package:key_bridge/imports.dart';
 
 class RegisterAdminPage extends BaseStatefulPage {
-  RegisterAdminPage({super.key});
+  final RegisterPageArgs? args;
+  RegisterAdminPage({super.key, required this.args});
 
   @override
   State<RegisterAdminPage> createState() => _RegisterAdminPageState();
@@ -29,6 +31,9 @@ class _RegisterAdminPageState extends BaseState<RegisterAdminPage> {
   PreferredSizeWidget? appBar() => CustomAppbar(
         title: LocaleKeys.register.tr(),
       );
+
+  @override
+  bool hasSideMenu() => widget.args?.isLoggingAgain ?? false;
 
   @override
   bool containPadding() => false;

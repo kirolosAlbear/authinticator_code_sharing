@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:key_bridge/features/register_admin/data/models/register_page_args.dart'
+    show RegisterPageArgs;
 import 'package:key_bridge/imports.dart';
 
 class Routes {
@@ -88,8 +90,17 @@ class Routes {
         parentNavigatorKey: rootNavigatorKey,
         path: registerAdminScreen,
         name: registerAdminScreen,
-        pageBuilder: (context, state) =>
-            _fadeTransitionScreenWrapper(context, state, RegisterAdminPage()),
+        pageBuilder: (context, state) {
+          final RegisterPageArgs? args = state.extra is RegisterPageArgs
+              ? state.extra as RegisterPageArgs
+              : null;
+          return _fadeTransitionScreenWrapper(
+              context,
+              state,
+              RegisterAdminPage(
+                args: args,
+              ));
+        },
       ),
       GoRoute(
         parentNavigatorKey: rootNavigatorKey,
