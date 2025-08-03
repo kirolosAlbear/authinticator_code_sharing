@@ -32,7 +32,7 @@ class LoggerService {
   LoggerService._();
 
   // Static field to track if logging is enabled or disabled
-  static bool _isLoggingEnabled = true;
+  static bool _isLoggingEnabled = kDebugMode;
 
   // Method to toggle logging on or off
   static void toggleLogging(bool isEnabled) {

@@ -121,7 +121,7 @@ class _RegisterAdminPageState extends BaseState<RegisterAdminPage> {
                             RegisterAdminRequestModel(
                               verificationCode: "",
                               secretKey: secretKeyController.text,
-                              adminUserName: emailController.text,
+                              adminUserName: emailController.text.toLowerCase(),
                               adminPassword: passwordController.text,
                             )), widget.args!));
                   }
