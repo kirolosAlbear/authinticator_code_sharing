@@ -22,14 +22,21 @@ class CustomOkCancelDialog extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
       ),
       actions: <Widget>[
-        TextButton(
+
+        CustomElevatedButton(
+          height: 35,
+          fontSize: 16,
           onPressed: () {
             Navigator.of(context).pop(); // Close the dialog
           },
-          child: Text(LocaleKeys.cancel.tr()),
+          text: LocaleKeys.cancel.tr(),
         ),
+
         CustomElevatedButton(
-          height: 40,
+          height: 35,
+          color: Color(0xff6f41ce),
+          fontSize: 16,
+          
           onPressed: () {
             // Perform the action here
             onOkPressed();
@@ -37,6 +44,15 @@ class CustomOkCancelDialog extends StatelessWidget {
           },
           text: LocaleKeys.ok.tr(),
         ),
+
+        // TextButton(
+        //   onPressed: () {
+        //     Navigator.of(context).pop(); // Close the dialog
+        //   },
+        //   child: Text(LocaleKeys.cancel.tr(),
+        //       style: TextStyle(color: StaticColors.primaryLighterColor),),
+        // ),
+
       ],
     );
   }

@@ -6,6 +6,7 @@ class StaticColors {
 
   static const Color appTheme_55B = Color(0xff00755B);
   static const Color primaryColor = Color(0xff5c45a3);
+  static const Color primaryLighterColor = Color(0xffae93ff);
   static const Color buttonStartColor = Color(0xff157C8C);
   static const Color backgroundColor = Color(0xff1e1a29);
   static const Color sideMenuHeaderColor = Color(0xff312c42);

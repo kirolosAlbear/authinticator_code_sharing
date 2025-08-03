@@ -51,7 +51,7 @@ class _AdminHomePagePageState extends BaseState<AdminHomePage> {
   @override
   Widget body(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsDirectional.only(
+      padding: const EdgeInsetsDirectional.only(
         bottom: 20,
         top: 20,
       ),
@@ -62,11 +62,12 @@ class _AdminHomePagePageState extends BaseState<AdminHomePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
+                mainAxisAlignment: MainAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   // title with refresh button
                   Padding(
-                    padding: EdgeInsetsDirectional.only(start: 16),
+                    padding: const EdgeInsetsDirectional.only(start: 16),
                     child: Text(
                       LocaleKeys.users_list.tr(),
                       style: TextStyle(
@@ -79,7 +80,7 @@ class _AdminHomePagePageState extends BaseState<AdminHomePage> {
                   ),
 
                   Padding(
-                    padding: EdgeInsetsDirectional.only(start: 15),
+                    padding: const EdgeInsetsDirectional.only(start: 15),
                     child: _buildTextButton(
                         context, LocaleKeys.refresh.tr(), Icons.refresh, () {
                       BlocProvider.of<AdminHomeBloc>(context)
@@ -93,12 +94,16 @@ class _AdminHomePagePageState extends BaseState<AdminHomePage> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
               ParentBloc<AdminHomeBloc, AdminHomeState>(
                 emptyWidget: const EmptyUsersWidget(),
                 showWidgetOnError: true,
+                loadingWidget: Container(
+                    height: 500,
+                    width: AppDimensions.cardMaxWidth + 100,
+                    child: const AppLoadingBar()),
                 builder: (AdminHomeState state) {
                   return Container(
                     constraints: BoxConstraints(
@@ -178,12 +183,12 @@ class _AdminHomePagePageState extends BaseState<AdminHomePage> {
     return TextButton(
       child: Row(
         children: [
-          Icon(icon),
-          SizedBox(width: 5),
+          Icon(icon,color: StaticColors.primaryLighterColor,),
+          const SizedBox(width: 5),
           Text(
             text,
-            style: TextStyle(
-              color: Theme.of(context).primaryColor,
+            style: const TextStyle(
+              color: StaticColors.primaryLighterColor,
               fontSize: 12,
             ),
           ),

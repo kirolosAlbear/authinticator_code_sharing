@@ -30,6 +30,9 @@ class AppToast {
           BuildContext? context) =>
       Container(
         padding: const EdgeInsets.all(10),
+        constraints: BoxConstraints(
+          maxWidth: 300.0,
+        ),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5.0),
           boxShadow: <BoxShadow>[

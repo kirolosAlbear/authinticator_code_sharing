@@ -190,7 +190,9 @@ class DrawerWidget extends StatelessWidget {
                                 showDialog(
                                   context: context,
                                   builder: (context) {
-                                    return const SwitchAccountWidget();
+                                    return Dialog(
+                                      backgroundColor: Colors.transparent,
+                                        child: const SwitchAccountWidget());
                                   },
                                 );
                               },
